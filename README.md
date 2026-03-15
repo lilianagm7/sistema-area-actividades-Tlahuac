@@ -1,2 +1,20 @@
-# sistema-area-actividades-Tlahuac
-About Proyecto de residencias profesionales, que gestiona, organiza y centraliza la informacion de los eventos, talleres y personal que se integran a la alcaldia Tlahuac
+# Sistema de Gestión de Eventos y Talleres
+
+Aplicación web desarrollada con **ASP.NET Core MVC** y **SQL Server** para la gestión de eventos, talleres, inscripciones y asistencias.
+
+## Tecnologías utilizadas
+- ASP.NET Core MVC
+- Entity Framework Core
+- SQL Server
+- ASP.NET Identity
+
+## Funcionalidades del sistema
+- Gestión de eventos
+- Gestión de talleres
+- Registro de alumnos
+- Inscripciones
+- Control de asistencia
+- Generación de constancias
+
+## Autor
+Liliana Gerardo Méndez

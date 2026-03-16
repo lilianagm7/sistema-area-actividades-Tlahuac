@@ -159,7 +159,7 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Alumnos", b =>
+            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Alumno", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -286,7 +286,7 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Asistencias", b =>
+            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Asistencia", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -315,7 +315,7 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
                     b.ToTable("Asistencias");
                 });
 
-            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.CamposEventos", b =>
+            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.CampoEvento", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -346,7 +346,7 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
                     b.ToTable("CamposEventos");
                 });
 
-            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Categorias", b =>
+            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Categoria", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -371,7 +371,7 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
                     b.ToTable("Categorias");
                 });
 
-            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Eventos", b =>
+            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Evento", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -407,19 +407,16 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
                     b.Property<int>("TipoActividadId")
                         .HasColumnType("int");
 
-                    b.Property<int>("TipoActividadesId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("CategoriaId");
 
-                    b.HasIndex("TipoActividadesId");
+                    b.HasIndex("TipoActividadId");
 
                     b.ToTable("Eventos");
                 });
 
-            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Imagenes", b =>
+            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Imagen", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -449,7 +446,7 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
                     b.ToTable("Imagenes");
                 });
 
-            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Inscripciones", b =>
+            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Inscripcion", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -484,7 +481,7 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
                     b.ToTable("Inscripciones");
                 });
 
-            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Instructores", b =>
+            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Instructor", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -510,7 +507,7 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
                     b.ToTable("Instructores");
                 });
 
-            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.InstructoresTalleres", b =>
+            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.InstructorTaller", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -533,7 +530,7 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
                     b.ToTable("InstructoresTalleres");
                 });
 
-            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Parentescos", b =>
+            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Parentesco", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -554,7 +551,7 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
                     b.ToTable("Parentescos");
                 });
 
-            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Participantes", b =>
+            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Participante", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -584,7 +581,7 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
                     b.ToTable("Participantes");
                 });
 
-            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.RespuestasEventos", b =>
+            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.RespuestaEvento", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -612,7 +609,7 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
                     b.ToTable("RespuestasEventos");
                 });
 
-            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Sesiones", b =>
+            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Sesion", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -639,7 +636,7 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
                     b.ToTable("Sesiones");
                 });
 
-            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Talleres", b =>
+            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Taller", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -674,19 +671,16 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
                     b.Property<int>("TipoActividadId")
                         .HasColumnType("int");
 
-                    b.Property<int>("TipoActividadesId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("CategoriaId");
 
-                    b.HasIndex("TipoActividadesId");
+                    b.HasIndex("TipoActividadId");
 
                     b.ToTable("Talleres");
                 });
 
-            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.TiposActividades", b =>
+            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.TipoActividad", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -762,9 +756,9 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Alumnos", b =>
+            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Alumno", b =>
                 {
-                    b.HasOne("Sistema_Gestor_Eventos_Tlahuac.Models.Parentescos", "Parentesco")
+                    b.HasOne("Sistema_Gestor_Eventos_Tlahuac.Models.Parentesco", "Parentesco")
                         .WithMany()
                         .HasForeignKey("ParentescoId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -781,15 +775,15 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
                     b.Navigation("Usuario");
                 });
 
-            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Asistencias", b =>
+            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Asistencia", b =>
                 {
-                    b.HasOne("Sistema_Gestor_Eventos_Tlahuac.Models.Alumnos", "Alumno")
+                    b.HasOne("Sistema_Gestor_Eventos_Tlahuac.Models.Alumno", "Alumno")
                         .WithMany()
                         .HasForeignKey("AlumnoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Sistema_Gestor_Eventos_Tlahuac.Models.Sesiones", "Sesion")
+                    b.HasOne("Sistema_Gestor_Eventos_Tlahuac.Models.Sesion", "Sesion")
                         .WithMany()
                         .HasForeignKey("SesionId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -800,9 +794,9 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
                     b.Navigation("Sesion");
                 });
 
-            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.CamposEventos", b =>
+            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.CampoEvento", b =>
                 {
-                    b.HasOne("Sistema_Gestor_Eventos_Tlahuac.Models.Eventos", "Evento")
+                    b.HasOne("Sistema_Gestor_Eventos_Tlahuac.Models.Evento", "Evento")
                         .WithMany()
                         .HasForeignKey("EventoId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -811,17 +805,17 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
                     b.Navigation("Evento");
                 });
 
-            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Eventos", b =>
+            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Evento", b =>
                 {
-                    b.HasOne("Sistema_Gestor_Eventos_Tlahuac.Models.Categorias", "Categoria")
-                        .WithMany()
+                    b.HasOne("Sistema_Gestor_Eventos_Tlahuac.Models.Categoria", "Categoria")
+                        .WithMany("Eventos")
                         .HasForeignKey("CategoriaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Sistema_Gestor_Eventos_Tlahuac.Models.TiposActividades", "TipoActividades")
+                    b.HasOne("Sistema_Gestor_Eventos_Tlahuac.Models.TipoActividad", "TipoActividades")
                         .WithMany()
-                        .HasForeignKey("TipoActividadesId")
+                        .HasForeignKey("TipoActividadId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -830,15 +824,15 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
                     b.Navigation("TipoActividades");
                 });
 
-            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Inscripciones", b =>
+            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Inscripcion", b =>
                 {
-                    b.HasOne("Sistema_Gestor_Eventos_Tlahuac.Models.Alumnos", "Alumno")
+                    b.HasOne("Sistema_Gestor_Eventos_Tlahuac.Models.Alumno", "Alumno")
                         .WithMany()
                         .HasForeignKey("AlumnoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Sistema_Gestor_Eventos_Tlahuac.Models.Talleres", "Taller")
+                    b.HasOne("Sistema_Gestor_Eventos_Tlahuac.Models.Taller", "Taller")
                         .WithMany()
                         .HasForeignKey("TallerId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -857,7 +851,7 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
                     b.Navigation("UsuarioRegistro");
                 });
 
-            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Instructores", b =>
+            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Instructor", b =>
                 {
                     b.HasOne("Sistema_Gestor_Eventos_Tlahuac.Models.ApplicationUser", "Usuario")
                         .WithMany()
@@ -868,15 +862,15 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
                     b.Navigation("Usuario");
                 });
 
-            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.InstructoresTalleres", b =>
+            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.InstructorTaller", b =>
                 {
-                    b.HasOne("Sistema_Gestor_Eventos_Tlahuac.Models.Instructores", "Instructor")
+                    b.HasOne("Sistema_Gestor_Eventos_Tlahuac.Models.Instructor", "Instructor")
                         .WithMany()
                         .HasForeignKey("InstructorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Sistema_Gestor_Eventos_Tlahuac.Models.Talleres", "Taller")
+                    b.HasOne("Sistema_Gestor_Eventos_Tlahuac.Models.Taller", "Taller")
                         .WithMany()
                         .HasForeignKey("TallerId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -887,9 +881,9 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
                     b.Navigation("Taller");
                 });
 
-            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Participantes", b =>
+            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Participante", b =>
                 {
-                    b.HasOne("Sistema_Gestor_Eventos_Tlahuac.Models.Eventos", "Evento")
+                    b.HasOne("Sistema_Gestor_Eventos_Tlahuac.Models.Evento", "Evento")
                         .WithMany()
                         .HasForeignKey("EventoId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -906,9 +900,9 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
                     b.Navigation("Usuario");
                 });
 
-            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.RespuestasEventos", b =>
+            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.RespuestaEvento", b =>
                 {
-                    b.HasOne("Sistema_Gestor_Eventos_Tlahuac.Models.CamposEventos", "CampoEvento")
+                    b.HasOne("Sistema_Gestor_Eventos_Tlahuac.Models.CampoEvento", "CampoEvento")
                         .WithMany()
                         .HasForeignKey("CampoEventoId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -925,9 +919,9 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
                     b.Navigation("Usuario");
                 });
 
-            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Sesiones", b =>
+            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Sesion", b =>
                 {
-                    b.HasOne("Sistema_Gestor_Eventos_Tlahuac.Models.Talleres", "Taller")
+                    b.HasOne("Sistema_Gestor_Eventos_Tlahuac.Models.Taller", "Taller")
                         .WithMany()
                         .HasForeignKey("TallerId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -936,23 +930,28 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
                     b.Navigation("Taller");
                 });
 
-            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Talleres", b =>
+            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Taller", b =>
                 {
-                    b.HasOne("Sistema_Gestor_Eventos_Tlahuac.Models.Categorias", "Categoria")
+                    b.HasOne("Sistema_Gestor_Eventos_Tlahuac.Models.Categoria", "Categoria")
                         .WithMany()
                         .HasForeignKey("CategoriaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Sistema_Gestor_Eventos_Tlahuac.Models.TiposActividades", "TipoActividades")
+                    b.HasOne("Sistema_Gestor_Eventos_Tlahuac.Models.TipoActividad", "TipoActividades")
                         .WithMany()
-                        .HasForeignKey("TipoActividadesId")
+                        .HasForeignKey("TipoActividadId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Categoria");
 
                     b.Navigation("TipoActividades");
+                });
+
+            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Categoria", b =>
+                {
+                    b.Navigation("Eventos");
                 });
 #pragma warning restore 612, 618
         }

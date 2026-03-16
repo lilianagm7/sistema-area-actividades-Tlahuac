@@ -1,0 +1,18 @@
+﻿<div class="d-flex justify-content-between align-items-center mb-3">
+
+    <h1 class="mb-0">@ViewData["Title"]</h1>
+
+    <div>
+        @if (ViewData["Buttons"] != null)
+        {
+            foreach (var button in (List<dynamic>)ViewData["Buttons"])
+            {
+                <a asp-action="@button.Action"
+                   class="btn btn-@button.Color ms-2">
+                    @button.Text
+                </a>
+            }
+        }
+    </div>
+
+</div>

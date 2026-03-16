@@ -8,17 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Controllers\Atores\**" />
-    <Compile Remove="Controllers\IS\**" />
-    <Content Remove="Controllers\Atores\**" />
-    <Content Remove="Controllers\IS\**" />
-    <EmbeddedResource Remove="Controllers\Atores\**" />
-    <EmbeddedResource Remove="Controllers\IS\**" />
-    <None Remove="Controllers\Atores\**" />
-    <None Remove="Controllers\IS\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.14" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.23" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.23" />
@@ -32,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\Imagenes\" />
+    <Folder Include="Data\Migrations\" />
   </ItemGroup>
 
 </Project>

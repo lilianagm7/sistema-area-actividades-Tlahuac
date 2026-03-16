@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Sistema_Gestor_Eventos_Tlahuac.Models.Catalogos.Espacio>
+
+@{
+    ViewData["Title"] = "Espacios";
+    ViewData["ShowSearch"] = true;
+
+    var buttons = new List<dynamic>();
+    if (User.IsInRole("Administrador"))
+    {
+        buttons.Add(new { Text = "Crear espacio", Action = "Create", Color = "crear" });
+    }
+    ViewData["Buttons"] = new List<dynamic>
+    {
+        new { Text = "Regresar", Action = "Index", Color = "secondary" }
+    };
+}
+<partial name="_Header" />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Capacidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Activo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lugar)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Capacidad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Activo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Lugar.Nombre)
+                </td>
+                <td>
+                    <partial name="_BotonesdeCRUD" model="item.Id" />
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

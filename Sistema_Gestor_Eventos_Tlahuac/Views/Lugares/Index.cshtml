@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Sistema_Gestor_Eventos_Tlahuac.Models.Catalogos.Lugar>
+
+@{
+    ViewData["Title"] = "Lugares";
+    ViewData["ShowSearch"] = true;
+
+    var buttons = new List<dynamic>();
+    if (User.IsInRole("Administrador"))
+    {
+        buttons.Add(new { Text = "Crear evento", Action = "Create", Color = "crear" });
+    }
+    ViewData["Buttons"] = new List<dynamic>
+    {
+        new { Text = "Regresar", Action = "Index", Color = "secondary" }
+    };
+}
+<partial name="_Header" />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Colonia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Seccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Direccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Latitud)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Longitud)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Activo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Colonia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Seccion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Direccion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Latitud)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Longitud)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Activo)
+                </td>
+                <td>
+                    <partial name="_BotonesdeCRUD" model="item.Id" />
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Sistema_Gestor_Eventos_Tlahuac.Models;
+using Sistema_Gestor_Eventos_Tlahuac.Models.Catalogos;
 
 namespace Sistema_Gestor_Eventos_Tlahuac.Data
 {
@@ -11,21 +12,22 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Data
         {
         }
 
-        public DbSet<Categorias> Categorias { get; set; }
-        public DbSet<TiposActividades> TiposActividades { get; set; }
-        public DbSet<Talleres> Talleres { get; set; }
-        public DbSet<Instructores> Instructores { get; set; }
-        public DbSet<InstructoresTalleres> InstructoresTalleres { get; set; }
-        public DbSet<Sesiones> Sesiones { get; set; }
-        public DbSet<Eventos> Eventos { get; set; }
-        public DbSet<Participantes> Participantes { get; set; }
-        public DbSet<Alumnos> Alumnos { get; set; }
-        public DbSet<Parentescos> Parentescos { get; set; }
-        public DbSet<Inscripciones> Inscripciones { get; set; }
-        public DbSet<Asistencias> Asistencias { get; set; }
-        public DbSet<CamposEventos> CamposEventos { get; set; }
-        public DbSet<RespuestasEventos> RespuestasEventos { get; set; }
-        public DbSet<Imagenes> Imagenes { get; set; }
+        public DbSet<Categoria> Categorias { get; set; }
+        public DbSet<TipoActividad> TiposActividades { get; set; }
+        public DbSet<Lugar> Lugares { get; set; }
+        public DbSet<Taller> Talleres { get; set; }
+        public DbSet<Instructor> Instructores { get; set; }
+        public DbSet<InstructorTaller> InstructoresTalleres { get; set; }
+        public DbSet<Sesion> Sesiones { get; set; }
+        public DbSet<Evento> Eventos { get; set; }
+        public DbSet<Participante> Participantes { get; set; }
+        public DbSet<Alumno> Alumnos { get; set; }
+        public DbSet<Parentesco> Parentescos { get; set; }
+        public DbSet<Inscripcion> Inscripciones { get; set; }
+        public DbSet<Asistencia> Asistencias { get; set; }
+        public DbSet<CampoEvento> CamposEventos { get; set; }
+        public DbSet<RespuestaEvento> RespuestasEventos { get; set; }
+        public DbSet<Imagen> Imagenes { get; set; }
 
 
 
@@ -33,7 +35,7 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Inscripciones>()
+            modelBuilder.Entity<Inscripcion>()
                 .HasOne(i => i.UsuarioRegistro)
                 .WithMany()
                 .HasForeignKey(i => i.UsuarioRegistroId)

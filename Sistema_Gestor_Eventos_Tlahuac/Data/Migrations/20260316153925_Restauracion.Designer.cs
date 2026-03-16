@@ -12,8 +12,8 @@ using Sistema_Gestor_Eventos_Tlahuac.Data;
 namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20260316000452_UltimasModificaciones")]
-    partial class UltimasModificaciones
+    [Migration("20260316153925_Restauracion")]
+    partial class Restauracion
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -349,6 +349,77 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
                     b.ToTable("CamposEventos");
                 });
 
+            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Catalogos.Espacio", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("Activo")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("Capacidad")
+                        .HasColumnType("int");
+
+                    b.Property<int>("LugarId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("LugarId");
+
+                    b.ToTable("Espacio");
+                });
+
+            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Catalogos.Lugar", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("Activo")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Colonia")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
+
+                    b.Property<string>("Direccion")
+                        .IsRequired()
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
+
+                    b.Property<double?>("Latitud")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Longitud")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
+
+                    b.Property<string>("Seccion")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Lugares");
+                });
+
             modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Categoria", b =>
                 {
                     b.Property<int>("Id")
@@ -395,24 +466,28 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
-                    b.Property<DateTime>("Fecha")
+                    b.Property<int?>("EspacioId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("FechaFin")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Lugar")
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                    b.Property<DateTime>("FechaInicio")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Nombre")
                         .IsRequired()
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
 
-                    b.Property<int>("TipoActividadId")
+                    b.Property<int?>("TipoActividadId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CategoriaId");
+
+                    b.HasIndex("EspacioId");
 
                     b.HasIndex("TipoActividadId");
 
@@ -463,6 +538,9 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
                     b.Property<int>("AlumnoId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("EventoId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("FechaInscripcion")
                         .HasColumnType("datetime2");
 
@@ -476,6 +554,8 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("AlumnoId");
+
+                    b.HasIndex("EventoId");
 
                     b.HasIndex("TallerId");
 
@@ -660,6 +740,9 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
+                    b.Property<int?>("EspacioId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("FechaFin")
                         .HasColumnType("datetime2");
 
@@ -677,6 +760,8 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CategoriaId");
+
+                    b.HasIndex("EspacioId");
 
                     b.HasIndex("TipoActividadId");
 
@@ -762,7 +847,7 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
             modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Alumno", b =>
                 {
                     b.HasOne("Sistema_Gestor_Eventos_Tlahuac.Models.Parentesco", "Parentesco")
-                        .WithMany()
+                        .WithMany("Alumnos")
                         .HasForeignKey("ParentescoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -808,6 +893,17 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
                     b.Navigation("Evento");
                 });
 
+            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Catalogos.Espacio", b =>
+                {
+                    b.HasOne("Sistema_Gestor_Eventos_Tlahuac.Models.Catalogos.Lugar", "Lugar")
+                        .WithMany("Espacios")
+                        .HasForeignKey("LugarId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Lugar");
+                });
+
             modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Evento", b =>
                 {
                     b.HasOne("Sistema_Gestor_Eventos_Tlahuac.Models.Categoria", "Categoria")
@@ -816,15 +912,17 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Sistema_Gestor_Eventos_Tlahuac.Models.TipoActividad", "TipoActividades")
-                        .WithMany()
-                        .HasForeignKey("TipoActividadId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("Sistema_Gestor_Eventos_Tlahuac.Models.Catalogos.Espacio", null)
+                        .WithMany("Eventos")
+                        .HasForeignKey("EspacioId");
+
+                    b.HasOne("Sistema_Gestor_Eventos_Tlahuac.Models.TipoActividad", "TipoActividad")
+                        .WithMany("Eventos")
+                        .HasForeignKey("TipoActividadId");
 
                     b.Navigation("Categoria");
 
-                    b.Navigation("TipoActividades");
+                    b.Navigation("TipoActividad");
                 });
 
             modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Inscripcion", b =>
@@ -834,6 +932,10 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
                         .HasForeignKey("AlumnoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("Sistema_Gestor_Eventos_Tlahuac.Models.Evento", null)
+                        .WithMany("Inscripciones")
+                        .HasForeignKey("EventoId");
 
                     b.HasOne("Sistema_Gestor_Eventos_Tlahuac.Models.Taller", "Taller")
                         .WithMany()
@@ -941,6 +1043,10 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Sistema_Gestor_Eventos_Tlahuac.Models.Catalogos.Espacio", null)
+                        .WithMany("Talleres")
+                        .HasForeignKey("EspacioId");
+
                     b.HasOne("Sistema_Gestor_Eventos_Tlahuac.Models.TipoActividad", "TipoActividades")
                         .WithMany()
                         .HasForeignKey("TipoActividadId")
@@ -952,7 +1058,34 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
                     b.Navigation("TipoActividades");
                 });
 
+            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Catalogos.Espacio", b =>
+                {
+                    b.Navigation("Eventos");
+
+                    b.Navigation("Talleres");
+                });
+
+            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Catalogos.Lugar", b =>
+                {
+                    b.Navigation("Espacios");
+                });
+
             modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Categoria", b =>
+                {
+                    b.Navigation("Eventos");
+                });
+
+            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Evento", b =>
+                {
+                    b.Navigation("Inscripciones");
+                });
+
+            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Parentesco", b =>
+                {
+                    b.Navigation("Alumnos");
+                });
+
+            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.TipoActividad", b =>
                 {
                     b.Navigation("Eventos");
                 });

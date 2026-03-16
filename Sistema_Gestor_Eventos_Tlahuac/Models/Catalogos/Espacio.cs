@@ -12,6 +12,7 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Models.Catalogos
 
         [Display(Name = "Capacidad máxima")]
         public int Capacidad { get; set; }
+<<<<<<< Updated upstream
        
 
         //Relaciones 
@@ -20,6 +21,18 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Models.Catalogos
         public Lugar Lugar { get; set; }
         public bool Activo { get; set; } = true;
         //Relacion de muchos 
+=======
+
+
+        //Relaciones 
+        [Required]
+        [Display(Name = "A que lugar corresponde")]
+        public int LugarId { get; set; }
+        public Lugar Lugar { get; set; }
+
+        public bool Activo { get; set; } = true;
+        // Relación: en un espacio pueden realizarse eventos y talleres
+>>>>>>> Stashed changes
         public ICollection<Evento> Eventos { get; set; } = new List<Evento>();
 
         public ICollection<Taller> Talleres { get; set; } = new List<Taller>();

@@ -31,8 +31,11 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Models
         public int? TipoActividadId { get; set; }
         public TipoActividad TipoActividad { get; set; }
 
+<<<<<<< Updated upstream
         public int LugarId { get; set; }
         public Lugar Lugar { get; set; }
+=======
+>>>>>>> Stashed changes
         public ICollection<Inscripcion>? Inscripciones { get; set; }
     }
 }

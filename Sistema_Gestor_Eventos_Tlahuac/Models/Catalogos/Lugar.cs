@@ -7,6 +7,10 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Models.Catalogos
         public int Id { get; set; }
         [Required]
         [StringLength(150)]
+<<<<<<< Updated upstream
+=======
+        [Display(Name = "Nombre del lugar")]
+>>>>>>> Stashed changes
         public string Nombre { get; set; }
         [StringLength(150)]
         public string Colonia { get; set; }
@@ -20,9 +24,14 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Models.Catalogos
         public double? Longitud { get; set; }
         public bool Activo { get; set; } = true;
 
+<<<<<<< Updated upstream
         // Relación donde categoria puede tener muchos eventos
         public ICollection<Evento>? Eventos { get; set; }
         // Relación donde categoria puede tener muchos talleres
         public ICollection<Taller> Talleres { get; set; } = new List<Taller>();
+=======
+        // Relación: un lugar puede tener varios espacios
+        public ICollection<Espacio> Espacios { get; set; } = new List<Espacio>();
+>>>>>>> Stashed changes
     }
 }

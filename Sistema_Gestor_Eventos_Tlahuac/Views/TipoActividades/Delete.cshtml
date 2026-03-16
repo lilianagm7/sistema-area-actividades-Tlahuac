@@ -1,0 +1,50 @@
+﻿@model Sistema_Gestor_Eventos_Tlahuac.Models.TipoActividad
+
+@{
+    ViewData["Title"] = "Eliminar tipo de actividad";
+
+    ViewData["Buttons"] = new List<dynamic>
+    {
+        new { Text = "Regresar", Action = "Index", Color = "secondary" }
+    };
+}
+<partial name="_Header" />
+
+<hr />
+<div class="row justify-content-center">
+
+    <div class="col-lg-8">
+
+        <div class="card shadow-sm">
+
+            <div class="card-body">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Nombre)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Descripcion)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Descripcion)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Activo)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Activo)
+                </dd>
+                </dl>
+
+                <form asp-action="Delete">
+                    <a asp-action="Delete">
+                    <input type="hidden" asp-for="Id" />
+                       <input type="submit" value="Delete" class="btn btn-eliminar">
+                    </a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

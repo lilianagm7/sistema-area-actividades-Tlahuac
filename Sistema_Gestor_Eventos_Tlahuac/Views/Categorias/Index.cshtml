@@ -1,13 +1,14 @@
 ﻿@model IEnumerable<Sistema_Gestor_Eventos_Tlahuac.Models.Categoria>
 
 @{
-    ViewData["Title"] = "Categorías";
-    ViewData["Buttons"] = new List<dynamic>
-    {
-        new { Text = "Crear categoria", Action = "Create", Color = "crear" }
-    };
-}
+    ViewData["Title"] = "Categorias";
 
+    var buttons = new List<dynamic>();
+    if (User.IsInRole("Administrador"))
+    {
+        buttons.Add(new { Text = "Crear evento", Action = "Create", Color = "crear" });
+    }
+}
 <partial name="_Header" />
 
 <table class="table">
@@ -26,21 +27,23 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descripcion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Activo)
-            </td>
-            <td>
-                <partial name="_BotonesdeCRUD" model="item.Id" />
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Activo)
+                </td>
+                <td>
+                    <partial name="_BotonesdeCRUD" model="item.Id" />
+                </td>
+
+            </tr>
+        }
     </tbody>
 </table>

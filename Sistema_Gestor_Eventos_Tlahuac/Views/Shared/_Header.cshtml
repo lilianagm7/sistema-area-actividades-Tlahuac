@@ -3,13 +3,15 @@
     <h1 class="mb-0">@ViewData["Title"]</h1>
 
     <div>
-        @foreach (var button in (List<dynamic>)ViewData["Buttons"])
-            @if (User.IsInRole("Administrador"))
+        @if (ViewData["Buttons"] != null)
         {
-            <a asp-action="@button.Action"
-               class="btn btn-@button.Color ms-2">
-                @button.Text
-            </a>
+            foreach (var button in (List<dynamic>)ViewData["Buttons"])
+            {
+                <a asp-action="@button.Action"
+                   class="btn btn-@button.Color ms-2">
+                    @button.Text
+                </a>
+            }
         }
     </div>
 

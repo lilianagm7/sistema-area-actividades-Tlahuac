@@ -12,13 +12,7 @@
        class="btn btn-sm btn-modificar">
         📝
     </a>
-    <br>
-    <a asp-action="Details"
-    asp-route-id="@Model"
-    class="btn btn-sm btn-detalles">
-        <i class="bi bi-search"></i>
-         👁️ 
-    </a>
+
     <br>
     @if (User.IsInRole("Administrador"))
     {

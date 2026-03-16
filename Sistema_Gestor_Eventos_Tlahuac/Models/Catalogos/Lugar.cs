@@ -7,6 +7,7 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Models.Catalogos
         public int Id { get; set; }
         [Required]
         [StringLength(150)]
+
         [Display(Name = "Nombre del lugar")]
         public string Nombre { get; set; }
         [StringLength(150)]
@@ -25,6 +26,8 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Models.Catalogos
         public ICollection<Evento>? Eventos { get; set; }
         // Relación donde categoria puede tener muchos talleres
         public ICollection<Taller> Talleres { get; set; } = new List<Taller>();
+        // Relación: un lugar puede tener varios espacios
+        public ICollection<Espacio> Espacios { get; set; } = new List<Espacio>();
         // Relación: un lugar puede tener varios espacios
         public ICollection<Espacio> Espacios { get; set; } = new List<Espacio>();
     }

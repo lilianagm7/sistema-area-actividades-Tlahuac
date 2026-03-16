@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Sistema_Gestor_Eventos_Tlahuac.Models.Catalogos;
+using System.ComponentModel.DataAnnotations;
 
 namespace Sistema_Gestor_Eventos_Tlahuac.Models
 {
@@ -13,10 +14,10 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Models
         public string? Descripcion { get; set; }
 
         [Required]
-        public DateTime Fecha { get; set; }
+        public DateTime FechaInicio { get; set; }
 
-        [StringLength(200)]
-        public string? Lugar { get; set; }
+        public DateTime? FechaFin { get; set; }
+
 
         public int CapacidadMaxima { get; set; }
 
@@ -27,7 +28,11 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Models
         public int CategoriaId { get; set; }
         public Categoria Categoria { get; set; }
 
-        public int TipoActividadId { get; set; }
-        public TipoActividad TipoActividades { get; set; }
+        public int? TipoActividadId { get; set; }
+        public TipoActividad TipoActividad { get; set; }
+
+        public int LugarId { get; set; }
+        public Lugar Lugar { get; set; }
+        public ICollection<Inscripcion>? Inscripciones { get; set; }
     }
 }

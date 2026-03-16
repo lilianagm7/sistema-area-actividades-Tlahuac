@@ -1,19 +1,19 @@
-﻿@model IEnumerable<Sistema_Gestor_Eventos_Tlahuac.Models.Categoria>
+﻿@model IEnumerable<Sistema_Gestor_Eventos_Tlahuac.Models.TipoActividad>
 
 @{
-    ViewData["Title"] = "Categorias";
+    ViewData["Title"] = "Tipo de actividades";
     ViewData["ShowSearch"] = true;
 
     var buttons = new List<dynamic>();
+
     if (User.IsInRole("Administrador"))
     {
-        buttons.Add(new { Text = "Crear evento", Action = "Create", Color = "crear" });
+        buttons.Add(new { Text = "Crear nuevo tipo", Action = "Create", Color = "crear" });
     }
-    ViewData["Buttons"] = new List<dynamic>
-    {
-        new { Text = "Regresar", Action = "Index", Color = "secondary" }
-    };
+
+    ViewData["Buttons"] = buttons;
 }
+
 <partial name="_Header" />
 
 <table class="table">
@@ -47,7 +47,6 @@
                 <td>
                     <partial name="_BotonesdeCRUD" model="item.Id" />
                 </td>
-
             </tr>
         }
     </tbody>

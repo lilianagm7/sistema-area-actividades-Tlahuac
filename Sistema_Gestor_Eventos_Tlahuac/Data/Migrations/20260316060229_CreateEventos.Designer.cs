@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Sistema_Gestor_Eventos_Tlahuac.Data;
 
@@ -11,9 +12,11 @@ using Sistema_Gestor_Eventos_Tlahuac.Data;
 namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260316060229_CreateEventos")]
+    partial class CreateEventos
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -346,48 +349,6 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
                     b.ToTable("CamposEventos");
                 });
 
-            modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Catalogos.Lugar", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<bool>("Activo")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Colonia")
-                        .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
-
-                    b.Property<string>("Direccion")
-                        .IsRequired()
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
-
-                    b.Property<double?>("Latitud")
-                        .HasColumnType("float");
-
-                    b.Property<double?>("Longitud")
-                        .HasColumnType("float");
-
-                    b.Property<string>("Nombre")
-                        .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
-
-                    b.Property<string>("Seccion")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Lugares");
-                });
-
             modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Categoria", b =>
                 {
                     b.Property<int>("Id")
@@ -440,8 +401,9 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
                     b.Property<DateTime>("FechaInicio")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("LugarId")
-                        .HasColumnType("int");
+                    b.Property<string>("Lugar")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("Nombre")
                         .IsRequired()
@@ -454,8 +416,6 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CategoriaId");
-
-                    b.HasIndex("LugarId");
 
                     b.HasIndex("TipoActividadId");
 
@@ -864,19 +824,11 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Sistema_Gestor_Eventos_Tlahuac.Models.Catalogos.Lugar", "Lugar")
-                        .WithMany()
-                        .HasForeignKey("LugarId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Sistema_Gestor_Eventos_Tlahuac.Models.TipoActividad", "TipoActividad")
                         .WithMany("Eventos")
                         .HasForeignKey("TipoActividadId");
 
                     b.Navigation("Categoria");
-
-                    b.Navigation("Lugar");
 
                     b.Navigation("TipoActividad");
                 });

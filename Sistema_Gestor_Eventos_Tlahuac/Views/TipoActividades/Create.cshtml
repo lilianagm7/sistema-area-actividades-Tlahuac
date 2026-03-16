@@ -1,7 +1,7 @@
-﻿@model Sistema_Gestor_Eventos_Tlahuac.Models.Categoria
+﻿@model Sistema_Gestor_Eventos_Tlahuac.Models.TipoActividad
 
 @{
-    ViewData["Title"] = "Crear una categoria";
+    ViewData["Title"] = "Crear un tipo de actividad";
 
     ViewData["Buttons"] = new List<dynamic>
     {
@@ -10,6 +10,7 @@
 }
 <partial name="_Header" />
 
+<hr />
 <div class="row justify-content-center">
 
     <div class="col-lg-8">
@@ -18,47 +19,42 @@
 
             <div class="card-body">
                 <form asp-action="Create">
-
-                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
-
-                    <div class="mb-3">
-                        <label asp-for="Nombre" class="form-label"></label>
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Nombre" class="control-label"></label><p></p>
                         <input asp-for="Nombre" class="form-control" />
                         <span asp-validation-for="Nombre" class="text-danger"></span>
                     </div>
-
-                    <div class="mb-3">
-                        <label asp-for="Descripcion" class="form-label"></label>
-
+                    <br>
+                    <div class="form-group">
+                        <label asp-for="Descripcion" class="control-label"></label><p></p>
                         <textarea asp-for="Descripcion"
                                   class="form-control"
                                   rows="5"
                                   placeholder="Escribe una descripción...">
                         </textarea>
-
                         <span asp-validation-for="Descripcion" class="text-danger"></span>
                     </div>
-
-                    <div class="mb-3">
+                    <br>
+                    <div class="form-group form-check">
                         <label class="form-check-label">
-                            <input class="form-check-input" asp-for="Activo" />
-                            @Html.DisplayNameFor(model => model.Activo)
+                            <input class="form-check-input" asp-for="Activo" /> @Html.DisplayNameFor(model => model.Activo)
                         </label>
                     </div>
-
                     <div class="mt-4 d-flex justify-content-end gap-2">
                         <button type="submit" class="btn btn-dorado">
                             Crear
                         </button>
                     </div>
-
                 </form>
-
             </div>
-
         </div>
-
     </div>
-
 </div>
 
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+        }

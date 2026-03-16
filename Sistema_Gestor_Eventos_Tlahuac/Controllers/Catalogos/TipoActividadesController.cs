@@ -1,38 +1,38 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using Sistema_Gestor_Eventos_Tlahuac.Data;
 using Sistema_Gestor_Eventos_Tlahuac.Models;
 
 namespace Sistema_Gestor_Eventos_Tlahuac.Controllers.Catalogos
 {
-    public class CategoriasController : Controller
+    public class TipoActividadesController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public CategoriasController(ApplicationDbContext context)
+        public TipoActividadesController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Categorias
+        // GET: TipoActividades
         public async Task<IActionResult> Index(string search)
         {
-            var categorias = _context.Categorias.AsQueryable();
+            var tipoactividad = _context.TiposActividades.AsQueryable();
+
+
             if (!string.IsNullOrWhiteSpace(search))
             {
-                categorias = categorias.Where(c =>
-                    c.Nombre.ToLower().Contains(search.ToLower()));
+                tipoactividad = tipoactividad.Where(c => c.Nombre.ToLower().Contains(search.ToLower()));
             }
-
-            return View(await categorias.ToListAsync());
+            return View(await tipoactividad.ToListAsync());
         }
 
-        // GET: Categorias/Details/5
+        // GET: TipoActividades/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -40,39 +40,39 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Controllers.Catalogos
                 return NotFound();
             }
 
-            var categoria = await _context.Categorias
+            var tipoActividad = await _context.TiposActividades
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (categoria == null)
+            if (tipoActividad == null)
             {
                 return NotFound();
             }
 
-            return View(categoria);
+            return View(tipoActividad);
         }
 
-        // GET: Categorias/Create
+        // GET: TipoActividades/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Categorias/Create
+        // POST: TipoActividades/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nombre,Descripcion,Activo")] Categoria categoria)
+        public async Task<IActionResult> Create([Bind("Id,Nombre,Descripcion,Activo")] TipoActividad tipoActividad)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(categoria);
+                _context.Add(tipoActividad);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(categoria);
+            return View(tipoActividad);
         }
 
-        // GET: Categorias/Edit/5
+        // GET: TipoActividades/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -80,22 +80,22 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Controllers.Catalogos
                 return NotFound();
             }
 
-            var categoria = await _context.Categorias.FindAsync(id);
-            if (categoria == null)
+            var tipoActividad = await _context.TiposActividades.FindAsync(id);
+            if (tipoActividad == null)
             {
                 return NotFound();
             }
-            return View(categoria);
+            return View(tipoActividad);
         }
 
-        // POST: Categorias/Edit/5
+        // POST: TipoActividades/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Descripcion,Activo")] Categoria categoria)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Descripcion,Activo")] TipoActividad tipoActividad)
         {
-            if (id != categoria.Id)
+            if (id != tipoActividad.Id)
             {
                 return NotFound();
             }
@@ -104,12 +104,12 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Controllers.Catalogos
             {
                 try
                 {
-                    _context.Update(categoria);
+                    _context.Update(tipoActividad);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CategoriaExists(categoria.Id))
+                    if (!TipoActividadExists(tipoActividad.Id))
                     {
                         return NotFound();
                     }
@@ -120,10 +120,10 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Controllers.Catalogos
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(categoria);
+            return View(tipoActividad);
         }
 
-        // GET: Categorias/Delete/5
+        // GET: TipoActividades/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -131,34 +131,34 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Controllers.Catalogos
                 return NotFound();
             }
 
-            var categoria = await _context.Categorias
+            var tipoActividad = await _context.TiposActividades
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (categoria == null)
+            if (tipoActividad == null)
             {
                 return NotFound();
             }
 
-            return View(categoria);
+            return View(tipoActividad);
         }
 
-        // POST: Categorias/Delete/5
+        // POST: TipoActividades/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var categoria = await _context.Categorias.FindAsync(id);
-            if (categoria != null)
+            var tipoActividad = await _context.TiposActividades.FindAsync(id);
+            if (tipoActividad != null)
             {
-                _context.Categorias.Remove(categoria);
+                _context.TiposActividades.Remove(tipoActividad);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool CategoriaExists(int id)
+        private bool TipoActividadExists(int id)
         {
-            return _context.Categorias.Any(e => e.Id == id);
+            return _context.TiposActividades.Any(e => e.Id == id);
         }
     }
 }

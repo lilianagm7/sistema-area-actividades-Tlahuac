@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Sistema_Gestor_Eventos_Tlahuac.Models;
+using Sistema_Gestor_Eventos_Tlahuac.Models.Catalogos;
 
 namespace Sistema_Gestor_Eventos_Tlahuac.Data
 {
@@ -13,6 +14,7 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Data
 
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<TipoActividad> TiposActividades { get; set; }
+        public DbSet<Lugar> Lugares { get; set; }
         public DbSet<Taller> Talleres { get; set; }
         public DbSet<Instructor> Instructores { get; set; }
         public DbSet<InstructorTaller> InstructoresTalleres { get; set; }

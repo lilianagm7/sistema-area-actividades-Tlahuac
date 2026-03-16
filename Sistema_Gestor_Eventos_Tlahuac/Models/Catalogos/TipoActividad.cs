@@ -11,6 +11,7 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Models
         public string Nombre { get; set; }
 
         [StringLength(250)]
+        [Display(Name = "Descripción")]
         public string? Descripcion { get; set; }
 
         public bool Activo { get; set; } = true;

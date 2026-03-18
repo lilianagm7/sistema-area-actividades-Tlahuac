@@ -21,17 +21,18 @@ body {
     margin-bottom: 60px;
 }
 
+
 .btn-crear {
     background-color: #800020;
     color: white;
     border-color: #800020;
 }
 
-.btn-crear:hover {
-    background-color: #66001a;
-    border-color: #66001a;
-    color: white;
-}
+    .btn-crear:hover {
+        background-color: #66001a;
+        border-color: #66001a;
+        color: white;
+    }
 
 
 .btn-eliminar {
@@ -40,11 +41,11 @@ body {
     border-color: #4A0010;
 }
 
-.btn-eliminar:hover {
-    background-color: #35000B;
-    border-color: #35000B;
-    color: white;
-}
+    .btn-eliminar:hover {
+        background-color: #35000B;
+        border-color: #35000B;
+        color: white;
+    }
 
 .btn-detalles {
     background-color: #6A0D25;
@@ -52,11 +53,11 @@ body {
     border-color: #6A0D25;
 }
 
-.btn-detalles:hover {
-    background-color: #55091D;
-    border-color: #55091D;
-    color: white;
-}
+    .btn-detalles:hover {
+        background-color: #55091D;
+        border-color: #55091D;
+        color: white;
+    }
 
 .btn-modificar {
     background-color: #800520;
@@ -64,11 +65,11 @@ body {
     border-color: #800520;
 }
 
-.btn-modificar:hover {
-    background-color: #651726;
-    border-color: #651726;
-    color: white;
-}
+    .btn-modificar:hover {
+        background-color: #651726;
+        border-color: #651726;
+        color: white;
+    }
 
 .btn-dorado {
     background-color: #C9A227;
@@ -76,9 +77,8 @@ body {
     color: white;
 }
 
-.btn-dorado:hover {
-    background-color: #E0B84C;
-    border-color: #E0B84C;
-    color: black;
-}
-
+    .btn-dorado:hover {
+        background-color: #E0B84C;
+        border-color: #E0B84C;
+        color: black;
+    }

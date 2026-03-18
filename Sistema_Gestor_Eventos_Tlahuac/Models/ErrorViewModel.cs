@@ -1,4 +1,4 @@
-namespace Sistema_Gestor_Eventos_Tlahuac.Models
+﻿namespace Sistema_Gestor_Eventos_Tlahuac.Models
 {
     public class ErrorViewModel
     {

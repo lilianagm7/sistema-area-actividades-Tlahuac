@@ -15,7 +15,7 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Models
         public string? Descripcion { get; set; }
 
         public bool Activo { get; set; } = true;
-
+        // Relación donde categoria puede tener muchos eventos
         public ICollection<Evento>? Eventos { get; set; }
     }
 }

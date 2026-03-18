@@ -2,19 +2,9 @@
 
 @{
     ViewData["Title"] = "Espacios";
-    ViewData["ShowSearch"] = true;
-
-    var buttons = new List<dynamic>();
-    if (User.IsInRole("Administrador"))
-    {
-        buttons.Add(new { Text = "Crear espacio", Action = "Create", Color = "crear" });
-    }
-    ViewData["Buttons"] = new List<dynamic>
-    {
-        new { Text = "Regresar", Action = "Index", Color = "secondary" }
-    };
 }
-<partial name="_Header" />
+<partial name="_Header_Index" />
+
 <table class="table">
     <thead>
         <tr>
@@ -25,10 +15,10 @@
                 @Html.DisplayNameFor(model => model.Capacidad)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Activo)
+                @Html.DisplayNameFor(model => model.Lugar)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Lugar)
+                @Html.DisplayNameFor(model => model.Activo)
             </th>
             <th></th>
         </tr>
@@ -44,13 +34,13 @@
                     @Html.DisplayFor(modelItem => item.Capacidad)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Activo)
-                </td>
-                <td>
                     @Html.DisplayFor(modelItem => item.Lugar.Nombre)
                 </td>
                 <td>
-                    <partial name="_BotonesdeCRUD" model="item.Id" />
+                    @Html.DisplayFor(modelItem => item.Activo)
+                </td>
+                <td>
+                    <partial name="_Botones_Tablas" model="item.Id" />
                 </td>
             </tr>
         }

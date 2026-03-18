@@ -18,7 +18,6 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Data
         public DbSet<Lugar> Lugares { get; set; }
         public DbSet<Taller> Talleres { get; set; }
         public DbSet<Instructor> Instructores { get; set; }
-        public DbSet<Lugar> Lugares { get; set; }
         public DbSet<InstructorTaller> InstructoresTalleres { get; set; }
         public DbSet<Sesion> Sesiones { get; set; }
         public DbSet<Evento> Eventos { get; set; }
@@ -43,7 +42,6 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Data
                 .HasForeignKey(i => i.UsuarioRegistroId)
                 .OnDelete(DeleteBehavior.Restrict); //Restringe borrar registros
         }
-        public DbSet<Sistema_Gestor_Eventos_Tlahuac.Models.Catalogos.Espacio> Espacio { get; set; } = default!;
         /*
          ***CREACION DE UN INDICE PARA BUSQUEDA DE IMAGENES
          protected override void OnModelCreating(ModelBuilder modelBuilder){

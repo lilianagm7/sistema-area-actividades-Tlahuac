@@ -22,7 +22,7 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Controllers.Catalogos
         // GET: Espacios
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Espacio.Include(e => e.Lugar);
+            var applicationDbContext = _context.Espacios.Include(e => e.Lugar);
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -34,7 +34,7 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Controllers.Catalogos
                 return NotFound();
             }
 
-            var espacio = await _context.Espacio
+            var espacio = await _context.Espacios
                 .Include(e => e.Lugar)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (espacio == null)
@@ -57,7 +57,7 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Controllers.Catalogos
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nombre,Capacidad,Activo,LugarId")] Espacio espacio)
+        public async Task<IActionResult> Create([Bind("Id,Nombre,Capacidad,LugarId,Activo")] Espacio espacio)
         {
             if (ModelState.IsValid)
             {
@@ -77,7 +77,7 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Controllers.Catalogos
                 return NotFound();
             }
 
-            var espacio = await _context.Espacio.FindAsync(id);
+            var espacio = await _context.Espacios.FindAsync(id);
             if (espacio == null)
             {
                 return NotFound();
@@ -91,7 +91,7 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Controllers.Catalogos
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Capacidad,Activo,LugarId")] Espacio espacio)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Capacidad,LugarId,Activo")] Espacio espacio)
         {
             if (id != espacio.Id)
             {
@@ -130,7 +130,7 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Controllers.Catalogos
                 return NotFound();
             }
 
-            var espacio = await _context.Espacio
+            var espacio = await _context.Espacios
                 .Include(e => e.Lugar)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (espacio == null)
@@ -146,10 +146,10 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Controllers.Catalogos
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var espacio = await _context.Espacio.FindAsync(id);
+            var espacio = await _context.Espacios.FindAsync(id);
             if (espacio != null)
             {
-                _context.Espacio.Remove(espacio);
+                _context.Espacios.Remove(espacio);
             }
 
             await _context.SaveChangesAsync();
@@ -158,7 +158,7 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Controllers.Catalogos
 
         private bool EspacioExists(int id)
         {
-            return _context.Espacio.Any(e => e.Id == id);
+            return _context.Espacios.Any(e => e.Id == id);
         }
     }
 }

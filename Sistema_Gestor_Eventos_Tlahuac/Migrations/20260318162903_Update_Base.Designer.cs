@@ -12,7 +12,7 @@ using Sistema_Gestor_Eventos_Tlahuac.Data;
 namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20260318072105_Update_Base")]
+    [Migration("20260318162903_Update_Base")]
     partial class Update_Base
     {
         /// <inheritdoc />
@@ -371,7 +371,7 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
 
                     b.HasIndex("LugarId");
 
-                    b.ToTable("Espacio");
+                    b.ToTable("Espacios");
                 });
 
             modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Catalogos.Lugar", b =>

@@ -15,10 +15,10 @@
                 @Html.DisplayNameFor(model => model.Capacidad)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Activo)
+                @Html.DisplayNameFor(model => model.Lugar)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Lugar)
+                @Html.DisplayNameFor(model => model.Activo)
             </th>
             <th></th>
         </tr>
@@ -34,10 +34,10 @@
                     @Html.DisplayFor(modelItem => item.Capacidad)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Activo)
+                    @Html.DisplayFor(modelItem => item.Lugar.Nombre)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Lugar.Nombre)
+                    @Html.DisplayFor(modelItem => item.Activo)
                 </td>
                 <td>
                     <partial name="_Botones_Tablas" model="item.Id" />

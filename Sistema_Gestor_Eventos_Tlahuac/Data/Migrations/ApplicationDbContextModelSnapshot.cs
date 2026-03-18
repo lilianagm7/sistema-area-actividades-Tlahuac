@@ -368,7 +368,7 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
 
                     b.HasIndex("LugarId");
 
-                    b.ToTable("Espacio");
+                    b.ToTable("Espacios");
                 });
 
             modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Catalogos.Lugar", b =>

@@ -102,12 +102,10 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderKey")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -144,12 +142,10 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
@@ -471,12 +467,9 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
 
                     b.Property<DateTime>("FechaInicio")
                         .HasColumnType("datetime2");
-<<<<<<< Updated upstream
 
                     b.Property<int>("LugarId")
                         .HasColumnType("int");
-=======
->>>>>>> Stashed changes
 
                     b.Property<string>("Nombre")
                         .IsRequired()
@@ -492,11 +485,8 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
 
                     b.HasIndex("EspacioId");
 
-<<<<<<< Updated upstream
                     b.HasIndex("LugarId");
 
-=======
->>>>>>> Stashed changes
                     b.HasIndex("TipoActividadId");
 
                     b.ToTable("Eventos");
@@ -774,11 +764,8 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
 
                     b.HasIndex("EspacioId");
 
-<<<<<<< Updated upstream
                     b.HasIndex("LugarId");
 
-=======
->>>>>>> Stashed changes
                     b.HasIndex("TipoActividadId");
 
                     b.ToTable("Talleres");
@@ -912,11 +899,7 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
             modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Catalogos.Espacio", b =>
                 {
                     b.HasOne("Sistema_Gestor_Eventos_Tlahuac.Models.Catalogos.Lugar", "Lugar")
-<<<<<<< Updated upstream
-                        .WithMany()
-=======
                         .WithMany("Espacios")
->>>>>>> Stashed changes
                         .HasForeignKey("LugarId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -936,17 +919,11 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
                         .WithMany("Eventos")
                         .HasForeignKey("EspacioId");
 
-<<<<<<< Updated upstream
                     b.HasOne("Sistema_Gestor_Eventos_Tlahuac.Models.Catalogos.Lugar", "Lugar")
                         .WithMany("Eventos")
                         .HasForeignKey("LugarId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-=======
-                    b.HasOne("Sistema_Gestor_Eventos_Tlahuac.Models.TipoActividad", "TipoActividad")
-                        .WithMany("Eventos")
-                        .HasForeignKey("TipoActividadId");
->>>>>>> Stashed changes
 
                     b.HasOne("Sistema_Gestor_Eventos_Tlahuac.Models.TipoActividad", "TipoActividad")
                         .WithMany("Eventos")
@@ -954,11 +931,8 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
 
                     b.Navigation("Categoria");
 
-<<<<<<< Updated upstream
                     b.Navigation("Lugar");
 
-=======
->>>>>>> Stashed changes
                     b.Navigation("TipoActividad");
                 });
 
@@ -1084,13 +1058,10 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
                         .WithMany("Talleres")
                         .HasForeignKey("EspacioId");
 
-<<<<<<< Updated upstream
                     b.HasOne("Sistema_Gestor_Eventos_Tlahuac.Models.Catalogos.Lugar", null)
                         .WithMany("Talleres")
                         .HasForeignKey("LugarId");
 
-=======
->>>>>>> Stashed changes
                     b.HasOne("Sistema_Gestor_Eventos_Tlahuac.Models.TipoActividad", "TipoActividades")
                         .WithMany()
                         .HasForeignKey("TipoActividadId")
@@ -1111,13 +1082,11 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Migrations
 
             modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Catalogos.Lugar", b =>
                 {
-<<<<<<< Updated upstream
+                    b.Navigation("Espacios");
+
                     b.Navigation("Eventos");
 
                     b.Navigation("Talleres");
-=======
-                    b.Navigation("Espacios");
->>>>>>> Stashed changes
                 });
 
             modelBuilder.Entity("Sistema_Gestor_Eventos_Tlahuac.Models.Categoria", b =>

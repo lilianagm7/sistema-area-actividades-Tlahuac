@@ -18,7 +18,6 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Data
         public DbSet<Lugar> Lugares { get; set; }
         public DbSet<Taller> Talleres { get; set; }
         public DbSet<Instructor> Instructores { get; set; }
-        public DbSet<Lugar> Lugares { get; set; }
         public DbSet<InstructorTaller> InstructoresTalleres { get; set; }
         public DbSet<Sesion> Sesiones { get; set; }
         public DbSet<Evento> Eventos { get; set; }

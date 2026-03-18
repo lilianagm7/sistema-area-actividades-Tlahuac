@@ -2,19 +2,10 @@
 
 @{
     ViewData["Title"] = "Lugares";
-    ViewData["ShowSearch"] = true;
-
-    var buttons = new List<dynamic>();
-    if (User.IsInRole("Administrador"))
-    {
-        buttons.Add(new { Text = "Crear evento", Action = "Create", Color = "crear" });
-    }
-    ViewData["Buttons"] = new List<dynamic>
-    {
-        new { Text = "Regresar", Action = "Index", Color = "secondary" }
-    };
 }
-<partial name="_Header" />
+
+<partial name="_Header_Index" />
+
 <table class="table">
     <thead>
         <tr>
@@ -68,7 +59,7 @@
                     @Html.DisplayFor(modelItem => item.Activo)
                 </td>
                 <td>
-                    <partial name="_BotonesdeCRUD" model="item.Id" />
+                    <partial name="_Botones_Tablas" model="item.Id" />
                 </td>
             </tr>
         }

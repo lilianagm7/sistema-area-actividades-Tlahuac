@@ -28,7 +28,5 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Models.Catalogos
         public ICollection<Taller> Talleres { get; set; } = new List<Taller>();
         // Relación: un lugar puede tener varios espacios
         public ICollection<Espacio> Espacios { get; set; } = new List<Espacio>();
-        // Relación: un lugar puede tener varios espacios
-        public ICollection<Espacio> Espacios { get; set; } = new List<Espacio>();
     }
 }

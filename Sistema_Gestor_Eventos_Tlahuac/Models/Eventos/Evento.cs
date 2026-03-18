@@ -34,9 +34,6 @@ namespace Sistema_Gestor_Eventos_Tlahuac.Models
         public int LugarId { get; set; }
         public Lugar Lugar { get; set; }
 
-
-        public int LugarId { get; set; }
-        public Lugar Lugar { get; set; }
         public ICollection<Inscripcion>? Inscripciones { get; set; }
     }
 }

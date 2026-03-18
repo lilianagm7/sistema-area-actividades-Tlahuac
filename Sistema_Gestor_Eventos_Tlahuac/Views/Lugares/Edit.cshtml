@@ -1,14 +1,10 @@
 ﻿@model Sistema_Gestor_Eventos_Tlahuac.Models.Catalogos.Lugar
 
 @{
-    ViewData["Title"] = "Editar el lugar";
-
-    ViewData["Buttons"] = new List<dynamic>
-    {
-        new { Text = "Regresar", Action = "Index", Color = "secondary" }
-    };
+    ViewData["Title"] = "Editar un lugar";
 }
-<partial name="_Header" />
+
+<partial name="_Header_Vistas" />
 
 <div class="row justify-content-center">
 
@@ -55,14 +51,7 @@
                             <input class="form-check-input" asp-for="Activo" /> @Html.DisplayNameFor(model => model.Activo)
                         </label>
                     </div>
-                    <div class="mb-3">
-                        <label class="form-check-label">
-                            <input class="form-check-input" asp-for="Activo" /> @Html.DisplayNameFor(model => model.Activo)
-                        </label>
-
-                    </div>
-
-                    <partial name="_BotonesFormulario" />
+                    <partial name="_Botones_Formulario" />
                 </form>
 
             </div>
